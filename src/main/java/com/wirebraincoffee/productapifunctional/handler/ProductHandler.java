@@ -38,7 +38,7 @@ public class ProductHandler {
         return productMono
                 .flatMap(product -> ServerResponse.ok()
                         .contentType(APPLICATION_JSON)
-                        .body(fromObject(productMono)))
+                        .body(productMono, Product.class))
                 .switchIfEmpty(ServerResponse.notFound().build());
     }
 
